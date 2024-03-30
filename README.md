@@ -27,11 +27,11 @@ flutter run
 
 ## Contributing
 
-The success of **The Hermitage Community App** is driven by community contributions. Whether it's submitting feedback, proposing new features, or contributing to the codebase, your involvement is what shapes this app. Check out our [CONTRIBUTING.md](CONTRIBUTING.md) file for more information on how to contribute.
+The success of **The Hermitage Community App** is driven by community contributions. Whether it's submitting feedback, proposing new features, or contributing to the codebase, your involvement is what shapes this app.
 
 ## Feedback
 
-Your input is invaluable to us. For app-related feedback or suggestions, please use the in-app feedback feature. For technical issues or to discuss further development of the app, opening an issue right here on GitHub is the way to go.
+Your input is invaluable. For app-related feedback or suggestions, please use the in-app feedback feature. For technical issues or to discuss further development of the app, opening an issue right here on GitHub is the way to go.
 
 ## License
 
