@@ -45,11 +45,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyACl7hpAZiUYvOE4NGE1taZlR64AGAsmV0',
-    appId: '1:822147206443:web:7f52f33631209009d2096e',
+    appId: '1:822147206443:web:a922b04a54efab0fd2096e',
     messagingSenderId: '822147206443',
     projectId: 'the-hermitage-community',
     authDomain: 'the-hermitage-community.firebaseapp.com',
     storageBucket: 'the-hermitage-community.appspot.com',
+    measurementId: 'G-JCS5P9SKJT',
   );
 
   static const FirebaseOptions android = FirebaseOptions(

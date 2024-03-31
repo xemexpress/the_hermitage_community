@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:the_hermitage_community/core/core.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:the_hermitage_community/src/core/core.dart';
 import 'firebase_options.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,6 +13,8 @@ void main() async {
   );
 
   runApp(const MyApp());
+
+  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {
@@ -68,6 +72,8 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    FirebaseAnalytics.instance.logEvent(name: 'increment_button_press');
+
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
