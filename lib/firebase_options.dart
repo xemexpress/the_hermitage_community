@@ -63,11 +63,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDw_01v4BObZ0dCsTvAN4wUgSgBSYV1C8M',
-    appId: '1:822147206443:ios:2b9a2dc6b19f5715d2096e',
+    appId: '1:822147206443:ios:aa366f4ba819e78fd2096e',
     messagingSenderId: '822147206443',
     projectId: 'the-hermitage-community',
     storageBucket: 'the-hermitage-community.appspot.com',
-    iosBundleId: 'com.example.theHermitageCommunity',
+    iosBundleId: 'com.charmnsparkle.thehermitagecommunity',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
