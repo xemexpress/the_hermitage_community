@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:the_hermitage_community/src/common/common.dart';
 import 'package:the_hermitage_community/src/themes/themes.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -9,6 +8,11 @@ class IntroScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const String title = 'Ever Miss That Important Memo in the Elevator?';
+    const String body =
+        'Let\'s ditch the old-school board for a digital one! Community news anytime, anywhere.';
+    const String buttonText = 'I\'m in!';
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -16,29 +20,33 @@ class IntroScreen extends StatelessWidget {
           style: TextStyle(color: Palettes.onPrimary),
         ),
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 500,
-                decoration: BoxDecoration(
-                  borderRadius:
-                      BorderRadius.circular(20.0), // Adjust radius as needed
-                  image: const DecorationImage(
-                    image: AssetImage('assets/images/board.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              const Text(
-                'Welcome to The Hermitage Community. My name is Jason and I live in Tower 8, The Hermiage. When we take the lift to go from 5th floor to UG, we can always see this annoucement board. Would you like us to digitize it as an app or a web like this for our community? If yes, please click the button to make that happen.',
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/images/board.jpg'),
+            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                title,
+                style: Theme.of(context).textTheme.titleLarge,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 10),
-              Container(
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: const Text(
+                body,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 10),
+            InkWell(
+              onTap: () {
+                print('I want it!');
+              },
+              child: Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 10,
                   vertical: 5,
@@ -50,24 +58,19 @@ class IntroScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 width: 100,
                 height: 50,
-                child: const Text(
-                  'Yes\nLet\'s do it!',
-                  style: TextStyle(
-                    color: Palettes.onPrimary,
-                  ),
+                child: Text(
+                  buttonText,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(color: Palettes.onPrimary),
                   textAlign: TextAlign.center,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
-      // body: const Center(
-      // child: Text(
-      //   'Welcome to The Hermitage Community. My name is Jason and I live in Tower 8, The Hermiage. When I am taking the lift to go from our 5 floor to the UG, I can always see this annoucement board. Would you like me to develop an app like this for our community? If yes, please click the button to make that happen.',
-      //   textAlign: TextAlign.center,
-      // ),
-      // ),
     );
   }
 }
