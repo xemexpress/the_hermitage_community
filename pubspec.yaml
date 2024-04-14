@@ -41,6 +41,8 @@ dependencies:
     firebase_analytics_web: ^0.5.6
     google_fonts: ^6.2.1
     firebase_auth: ^4.19.1
+    transparent_image: ^2.0.1
+    font_awesome_flutter: ^10.7.0
 
 flutter_native_splash:
     android: true
