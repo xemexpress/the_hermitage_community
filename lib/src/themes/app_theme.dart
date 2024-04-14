@@ -4,7 +4,6 @@ import 'package:the_hermitage_community/src/themes/themes.dart';
 
 class AppTheme {
   static ThemeData currentTheme({
-    required BuildContext context,
     Brightness brightness = Brightness.light,
   }) =>
       brightness == Brightness.light
@@ -21,9 +20,7 @@ class AppTheme {
               appBarTheme: const AppBarTheme().copyWith(
                 backgroundColor: Palettes.primary,
               ),
-              textTheme: GoogleFonts.robotoSlabTextTheme(
-                Theme.of(context).textTheme,
-              ),
+              textTheme: GoogleFonts.robotoSlabTextTheme(),
             )
           : ThemeData(
               brightness: Brightness.dark,

@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:the_hermitage_community/src/core/core.dart';
+import 'package:the_hermitage_community/src/features/resonation/cubit/clap_counter_cubit.dart';
 import 'package:the_hermitage_community/src/themes/themes.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class IntroScreen extends StatefulWidget {
-  const IntroScreen({
+class IntroView extends StatefulWidget {
+  const IntroView({
     super.key,
   });
 
   @override
-  State<IntroScreen> createState() => _IntroScreenState();
+  State<IntroView> createState() => _IntroViewState();
 }
 
-class _IntroScreenState extends State<IntroScreen> {
+class _IntroViewState extends State<IntroView> {
   String title = 'Ever Miss That Important Memo Near Our Elevator?';
   String body =
       'Let\'s ditch the old-school board for a digital one! Community news anytime, anywhere.';
@@ -21,7 +23,6 @@ class _IntroScreenState extends State<IntroScreen> {
   String cancelSupportButtonText = 'Change mind? Cancel.';
   String clapButtonText = 'Clap';
   int supporterCount = 0;
-  int clapCount = 0;
   bool isSupporting = false;
 
   @override
@@ -98,11 +99,13 @@ class _IntroScreenState extends State<IntroScreen> {
                     ),
                     const SizedBox(width: 10),
                     IconButton(
-                      onPressed: () {
-                        setState(() {
-                          clapCount++;
-                        });
-                      },
+                      onPressed: () =>
+                          context.read<ClapCounterCubit>().increment(),
+                      // onPressed: () {
+                      //   setState(() {
+                      //     clapCount++;
+                      //   });
+                      // },
                       icon: AnimatedSwitcher(
                         duration: const Duration(milliseconds: 100),
                         transitionBuilder: (child, animation) {
@@ -110,21 +113,8 @@ class _IntroScreenState extends State<IntroScreen> {
                             scale: animation,
                             child: child,
                           );
-
-                          // return FadeTransition(
-                          //   opacity: animation,
-                          //   child: child,
-                          // );
-
-                          // return RotationTransition(
-                          //   turns: animation,
-                          //   child: child,
-                          // );
                         },
-                        child: FaIcon(
-                          FontAwesomeIcons.handsClapping,
-                          key: ValueKey(clapCount),
-                        ),
+                        child: const FaIcon(FontAwesomeIcons.handsClapping),
                       ),
                     ),
                   ],
@@ -172,13 +162,24 @@ class _IntroScreenState extends State<IntroScreen> {
             width: double.infinity,
             alignment: Alignment.center,
             color: Palettes.secondary,
-            child: Text(
-              'Currently $supporterCount supporter${supporterCount == 1 ? '' : 's'} (${targetSupporters - supporterCount} to go), $clapCount claps.',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall!
-                  .copyWith(color: Palettes.onSecondary),
+            child: BlocBuilder<ClapCounterCubit, int>(
+              builder: (context, clapCount) {
+                return Text(
+                  "Currently $supporterCount supporter${supporterCount == 1 ? '' : 's'} (${targetSupporters - supporterCount} to go), $clapCount clap${clapCount == 1 ? '' : 's'}.",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleSmall!
+                      .copyWith(color: Palettes.onSecondary),
+                );
+              },
             ),
+            // child: Text(
+            //   'Currently $supporterCount supporter${supporterCount == 1 ? '' : 's'} (${targetSupporters - supporterCount} to go), $clapCount claps.',
+            //   style: Theme.of(context)
+            //       .textTheme
+            //       .titleSmall!
+            //       .copyWith(color: Palettes.onSecondary),
+            // ),
           ),
         ],
       ),
