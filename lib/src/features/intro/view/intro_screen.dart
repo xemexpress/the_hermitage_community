@@ -42,7 +42,6 @@ class IntroScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-
             ElevatedButton(
               onPressed: () {},
               child: Text(
@@ -54,47 +53,6 @@ class IntroScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-
-            // FilledButton(
-            //   onPressed: () {},
-            //   child: Text(
-            //     buttonText,
-            //     style: Theme.of(context)
-            //         .textTheme
-            //         .titleMedium!
-            //         .copyWith(color: Palettes.onPrimary),
-            //     textAlign: TextAlign.center,
-            //   ),
-            // )
-
-            // InkWell(
-            //   onTap: () {
-            //     print('I want it!!');
-            //   },
-            //   enableFeedback: true,
-            //   splashColor: Palettes.onPrimary.withOpacity(0.5),
-            //   child: Container(
-            //     padding: const EdgeInsets.symmetric(
-            //       horizontal: 10,
-            //       vertical: 5,
-            //     ),
-            //     decoration: BoxDecoration(
-            //       color: Palettes.primary,
-            //       borderRadius: BorderRadius.circular(5),
-            //     ),
-            //     alignment: Alignment.center,
-            //     width: 100,
-            //     height: 50,
-            //     child: Text(
-            //       buttonText,
-            //       style: Theme.of(context)
-            //           .textTheme
-            //           .titleMedium!
-            //           .copyWith(color: Palettes.onPrimary),
-            //       textAlign: TextAlign.center,
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),
