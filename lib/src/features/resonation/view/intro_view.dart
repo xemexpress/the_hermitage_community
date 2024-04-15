@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,7 +19,7 @@ class IntroView extends StatefulWidget {
 class _IntroViewState extends State<IntroView> {
   String title = 'Ever Miss That Important Memo Near Our Elevator?';
   String body =
-      'Let\'s ditch the old-school board for a digital one! Community news anytime, anywhere.';
+      'Let\'s imagine a world with\ncommunity news anytime, anywhere.';
   String supportButtonText = 'I\'m in!';
   String cancelSupportButtonText = 'Change mind? Cancel.';
   String clapButtonText = 'Clap';
@@ -98,24 +99,26 @@ class _IntroViewState extends State<IntroView> {
                           : const Icon(Icons.golf_course),
                     ),
                     const SizedBox(width: 10),
-                    IconButton(
-                      onPressed: () =>
-                          context.read<ClapCounterCubit>().increment(),
-                      // onPressed: () {
-                      //   setState(() {
-                      //     clapCount++;
-                      //   });
-                      // },
-                      icon: AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 100),
-                        transitionBuilder: (child, animation) {
-                          return ScaleTransition(
-                            scale: animation,
-                            child: child,
-                          );
-                        },
-                        child: const FaIcon(FontAwesomeIcons.handsClapping),
-                      ),
+                    BlocBuilder<ClapCounterCubit, int>(
+                      builder: (context, clapCount) {
+                        return IconButton(
+                          onPressed: () =>
+                              context.read<ClapCounterCubit>().increment(),
+                          icon: AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 100),
+                            transitionBuilder: (child, animation) {
+                              return ScaleTransition(
+                                scale: animation,
+                                child: child,
+                              );
+                            },
+                            child: FaIcon(
+                              FontAwesomeIcons.handsClapping,
+                              key: ValueKey(clapCount),
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -123,7 +126,7 @@ class _IntroViewState extends State<IntroView> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: const Text(
-                    'Our first target is to reach $targetSupporters supporters to kick start the project!',
+                    'We, reach $targetSupporters supporters to start the project!',
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -138,6 +141,13 @@ class _IntroViewState extends State<IntroView> {
                     textAlign: TextAlign.center,
                   ),
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
+                // const Text('Timer'),
+                // const SizedBox(height: 10),
+
+                // const SizedBox(height: 10),
                 const TextField(
                   scrollPadding: EdgeInsets.all(50),
                   maxLines: 2,
