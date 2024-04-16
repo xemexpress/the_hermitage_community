@@ -114,6 +114,7 @@ class _IntroViewState extends State<IntroView> {
                             },
                             child: FaIcon(
                               FontAwesomeIcons.handsClapping,
+                              // key: UniqueKey(),
                               key: ValueKey(clapCount),
                             ),
                           ),
