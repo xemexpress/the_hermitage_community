@@ -2,13 +2,15 @@ import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_hermitage_community/src/features/resonation/resonation.dart';
-import 'package:the_hermitage_community/src/features/tutorials/authentication/bloc/authentication_bloc.dart';
+import 'package:the_hermitage_community/src/features/tutorials/auth/authentication/bloc/authentication_bloc.dart';
 import 'package:the_hermitage_community/src/features/tutorials/tutorials.dart';
 import 'package:the_hermitage_community/src/themes/themes.dart';
 import 'package:user_repository/user_repository.dart';
 
-// class TheHermitageCommunity
 
+
+
+// Flutter Bloc Authentication App
 // class TheHermitageCommunity extends StatefulWidget {
 //   const TheHermitageCommunity({super.key});
 
@@ -88,13 +90,15 @@ import 'package:user_repository/user_repository.dart';
 //   }
 // }
 
-class TheHermitageCommunity extends MaterialApp {
-  TheHermitageCommunity({super.key})
-      : super(
-          // home: const PostsPage(),
-          // home: const TimerPage(),
-          home: const IntroPage(),
-          theme: AppTheme.currentTheme(),
-          debugShowCheckedModeBanner: false,
-        );
-}
+
+// Flutter Original THC App
+// class TheHermitageCommunity extends MaterialApp {
+//   TheHermitageCommunity({super.key})
+//       : super(
+//           // home: const PostsPage(),
+//           // home: const TimerPage(),
+//           home: const IntroPage(),
+//           theme: AppTheme.currentTheme(),
+//           debugShowCheckedModeBanner: false,
+//         );
+// }

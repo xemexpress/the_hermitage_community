@@ -24,7 +24,7 @@ void main() async {
   Bloc.observer = const THCObserver();
 
   runApp(
-    TheHermitageCommunity(),
+    const TheHermitageCommunity(),
   );
 
   FlutterNativeSplash.remove();
