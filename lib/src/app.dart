@@ -10,49 +10,49 @@ import 'package:user_repository/user_repository.dart';
 import 'package:weather_repository/weather_repository.dart';
 
 // Flutter Bloc Weather App
-class TheHermitageCommunity extends StatelessWidget {
-  const TheHermitageCommunity(
-      {required WeatherRepository weatherRepository, super.key})
-      : _weatherRepository = weatherRepository;
+// class TheHermitageCommunity extends StatelessWidget {
+//   const TheHermitageCommunity(
+//       {required WeatherRepository weatherRepository, super.key})
+//       : _weatherRepository = weatherRepository;
 
-  final WeatherRepository _weatherRepository;
+//   final WeatherRepository _weatherRepository;
 
-  @override
-  Widget build(BuildContext context) {
-    return RepositoryProvider.value(
-      value: _weatherRepository,
-      child: BlocProvider(
-        create: (_) => ThemeCubit(),
-        child: const WeatherAppView(),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return RepositoryProvider.value(
+//       value: _weatherRepository,
+//       child: BlocProvider(
+//         create: (_) => ThemeCubit(),
+//         child: const WeatherAppView(),
+//       ),
+//     );
+//   }
+// }
 
-class WeatherAppView extends StatelessWidget {
-  const WeatherAppView({super.key});
+// class WeatherAppView extends StatelessWidget {
+//   const WeatherAppView({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<ThemeCubit, Color>(
-      builder: (context, color) {
-        return MaterialApp(
-          theme: ThemeData(
-            appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-            ),
-            colorScheme: ColorScheme.fromSeed(seedColor: color),
-            textTheme: GoogleFonts.rajdhaniTextTheme(),
-          ),
-          // theme: AppTheme.currentTheme(),
-          debugShowCheckedModeBanner: false,
-          home: const WeatherPage(),
-        );
-      },
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocBuilder<ThemeCubit, Color>(
+//       builder: (context, color) {
+//         return MaterialApp(
+//           theme: ThemeData(
+//             appBarTheme: const AppBarTheme(
+//               backgroundColor: Colors.transparent,
+//               elevation: 0,
+//             ),
+//             colorScheme: ColorScheme.fromSeed(seedColor: color),
+//             textTheme: GoogleFonts.rajdhaniTextTheme(),
+//           ),
+//           // theme: AppTheme.currentTheme(),
+//           debugShowCheckedModeBanner: false,
+//           home: const WeatherPage(),
+//         );
+//       },
+//     );
+//   }
+// }
 
 // Flutter Bloc Authentication App
 // class TheHermitageCommunity extends StatefulWidget {
@@ -134,15 +134,14 @@ class WeatherAppView extends StatelessWidget {
 //   }
 // }
 
-
 // Flutter Original THC App
-// class TheHermitageCommunity extends MaterialApp {
-//   TheHermitageCommunity({super.key})
-//       : super(
-//           // home: const PostsPage(),
-//           // home: const TimerPage(),
-//           home: const IntroPage(),
-//           theme: AppTheme.currentTheme(),
-//           debugShowCheckedModeBanner: false,
-//         );
-// }
+class TheHermitageCommunity extends MaterialApp {
+  TheHermitageCommunity({super.key})
+      : super(
+          // home: const PostsPage(),
+          // home: const TimerPage(),
+          home: const IntroPage(),
+          theme: AppTheme.currentTheme(),
+          debugShowCheckedModeBanner: false,
+        );
+}

@@ -25,8 +25,8 @@ void main() async {
   Bloc.observer = const THCObserver();
 
   runApp(
-    TheHermitageCommunity(weatherRepository: WeatherRepository()),
-    // const TheHermitageCommunity(),
+    // TheHermitageCommunity(weatherRepository: WeatherRepository()),
+    TheHermitageCommunity(),
   );
 
   FlutterNativeSplash.remove();
