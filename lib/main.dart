@@ -6,6 +6,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:the_hermitage_community/src/app.dart';
 import 'package:the_hermitage_community/src/features/features.dart';
+import 'package:weather_repository/weather_repository.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -24,7 +25,8 @@ void main() async {
   Bloc.observer = const THCObserver();
 
   runApp(
-    const TheHermitageCommunity(),
+    TheHermitageCommunity(weatherRepository: WeatherRepository()),
+    // const TheHermitageCommunity(),
   );
 
   FlutterNativeSplash.remove();

@@ -147,12 +147,12 @@ void main() {
             seed: () => WeatherState(
               temperatureUnits: TemperatureUnits.fahrenheit,
             ),
-            act: (cubit) {
-              // weatherCubit.toggleUnits();
-              weatherCubit.fetchWeather(weatherLocation);
-            },
+            act: (cubit) => cubit.fetchWeather(weatherLocation),
             expect: () => <dynamic>[
-              WeatherState(status: WeatherStatus.loading),
+              WeatherState(
+                status: WeatherStatus.loading,
+                temperatureUnits: TemperatureUnits.fahrenheit,
+              ),
               isA<WeatherState>()
                   .having((w) => w.status, 'status', WeatherStatus.success)
                   .having(
@@ -389,7 +389,7 @@ void main() {
             build: () => weatherCubit,
             seed: () => WeatherState(
               status: WeatherStatus.success,
-              temperatureUnits: TemperatureUnits.celsius,
+              // temperatureUnits: TemperatureUnits.celsius,
               weather: Weather(
                 condition: weather_repository.WeatherCondition.rainy,
                 lastUpdated: DateTime(2024),
@@ -401,6 +401,7 @@ void main() {
             expect: () => <WeatherState>[
               WeatherState(
                 status: WeatherStatus.success,
+                temperatureUnits: TemperatureUnits.fahrenheit,
                 weather: Weather(
                   condition: weather_repository.WeatherCondition.rainy,
                   lastUpdated: DateTime(2024),
